@@ -29,7 +29,7 @@ const lstCambioMoneda = (function() {
     /* Guardamos los datos en localStorage */
     localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
     /* Los restauramos y usamos para mostrar los datos */
-    resultado.innerText += "Usando datos de localStorage";
+    resultado.innerText += "Usando datos de localStorage\n\n";
     return JSON.parse(String(localStorage.getItem("PaisesWU")));
   } catch {
     resultado.innerText += "Estamos en stackoverflow, usamos los datos directamente\n\n";

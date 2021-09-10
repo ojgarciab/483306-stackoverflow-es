@@ -29,7 +29,7 @@ localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
 const lstCambioMoneda =  JSON.parse(String(localStorage.getItem("PaisesWU")));
 
 /* Generamos la salida en HTML */
-lstCambioMoneda.detalle.Detalle.forEach(elemento => {
+lstCambioMoneda.forEach(elemento => {
   resultado.innerText += elemento.countrY_LONG + ", "
     + elemento.currencY_NAME + "\n";
 });

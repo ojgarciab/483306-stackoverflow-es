@@ -22,11 +22,20 @@ const response = {"estado": "0",
   }
 };
 
-/* Guardamos los datos en localStorage */
-localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
-
-/* Los restauramos y usamos para mostrar los datos */
-const lstCambioMoneda =  JSON.parse(String(localStorage.getItem("PaisesWU")));
+/* En stackoverflow no se puede usar "localStorage", por lo que
+  tenemos que capturar el error que saldrá al no poder usarlo */
+const lstCambioMoneda = (function() {
+  try {
+    /* Guardamos los datos en localStorage */
+    localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
+    /* Los restauramos y usamos para mostrar los datos */
+    console.log("Usando datos de localStorage");
+    return JSON.parse(String(localStorage.getItem("PaisesWU")));
+  } catch {
+    console.log("Estamos en stackoverflow, usamos los datos directamente");
+    return response.detalle.Detalle;
+  }
+})();
 
 /* Generamos la salida en HTML */
 lstCambioMoneda.forEach(elemento => {

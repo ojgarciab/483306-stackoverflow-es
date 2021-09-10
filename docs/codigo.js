@@ -29,10 +29,10 @@ const lstCambioMoneda = (function() {
     /* Guardamos los datos en localStorage */
     localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
     /* Los restauramos y usamos para mostrar los datos */
-    console.log("Usando datos de localStorage");
+    resultado.innerText += "Usando datos de localStorage";
     return JSON.parse(String(localStorage.getItem("PaisesWU")));
   } catch {
-    console.log("Estamos en stackoverflow, usamos los datos directamente");
+    resultado.innerText += "Estamos en stackoverflow, usamos los datos directamente\n\n";
     return response.detalle.Detalle;
   }
 })();

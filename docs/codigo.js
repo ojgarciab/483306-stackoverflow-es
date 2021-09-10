@@ -1,4 +1,4 @@
-const datos = {"estado": "0",
+const response = {"estado": "0",
   "mensaje": "Ok",
   "detalle": {
     "Detalle": [
@@ -27,6 +27,8 @@ localStorage.setItem("PaisesWU", JSON.stringify(response.detalle.Detalle));
 
 /* Los restauramos y usamos para mostrar los datos */
 const lstCambioMoneda =  JSON.parse(String(localStorage.getItem("PaisesWU")));
+
+/* Generamos la salida en HTML */
 lstCambioMoneda.detalle.Detalle.forEach(elemento => {
   resultado.innerText += elemento.countrY_LONG + ", "
     + elemento.currencY_NAME + "\n";
